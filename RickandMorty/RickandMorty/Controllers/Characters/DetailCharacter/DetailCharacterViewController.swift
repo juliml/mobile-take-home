@@ -10,21 +10,54 @@ import UIKit
 
 class DetailCharacterViewController: UIViewController {
 
+    @IBOutlet var imageCharacter: UIImageView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var descriptionCharacter: UILabel!
+    
+    public var character: Character!
+    var charactersViewModel: CharactersViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.activityIndicator.startAnimating()
+        self.charactersViewModel = CharactersViewModel()
+        self.loadCharacter()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func loadCharacter(){
+        
+        charactersViewModel?.getCharacterImage(character: character, completion: { (image) in
+            
+            guard let image = image else {return}
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+                self.imageCharacter.image = image
+            }
+        
+        })
+        
+        descriptionCharacter.minimumScaleFactor = 0.1
+        descriptionCharacter.adjustsFontSizeToFitWidth = true
+        
+        descriptionCharacter.text = """
+        Name: \(character.name!)
+        ----------
+        Status: \(character.status!)
+        ----------
+        Specie: \(character.species!)
+        ----------
+        Gender: \(character.gender!)
+        ----------
+        Origin: \(character.origin!.name)
+        """
+        
     }
-    */
+    
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }

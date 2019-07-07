@@ -20,6 +20,10 @@
 		B906526922D0C4E1004808DB /* EpisodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906526822D0C4E1004808DB /* EpisodesViewModel.swift */; };
 		B906526B22D0C4F6004808DB /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906526A22D0C4F6004808DB /* CharactersViewModel.swift */; };
 		B906527122D0C9D1004808DB /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906527022D0C9D1004808DB /* RestManager.swift */; };
+		B95E985F22D2671F00511014 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95E985E22D2671F00511014 /* CharacterCollectionViewCell.swift */; };
+		B95E986122D26AFE00511014 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95E986022D26AFE00511014 /* HeaderCollectionReusableView.swift */; };
+		B95E986322D292A700511014 /* ImageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95E986222D292A700511014 /* ImageTask.swift */; };
+		B95E987122D2B4BA00511014 /* Episodes.json in Resources */ = {isa = PBXBuildFile; fileRef = B95E986F22D2B4BA00511014 /* Episodes.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,10 @@
 		B906526822D0C4E1004808DB /* EpisodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewModel.swift; sourceTree = "<group>"; };
 		B906526A22D0C4F6004808DB /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		B906527022D0C9D1004808DB /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
+		B95E985E22D2671F00511014 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		B95E986022D26AFE00511014 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		B95E986222D292A700511014 /* ImageTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTask.swift; sourceTree = "<group>"; };
+		B95E986F22D2B4BA00511014 /* Episodes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Episodes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,8 @@
 				B906525122D0B8E7004808DB /* ViewModels */,
 				B906525222D0B8F1004808DB /* Controllers */,
 				B906525322D0B900004808DB /* Views */,
+				B95E985922D25CCE00511014 /* Utils */,
+				B95E985622D25BA300511014 /* Extensions */,
 				B906525422D0B916004808DB /* SupportingFiles */,
 			);
 			path = RickandMorty;
@@ -104,6 +114,7 @@
 		B906524322D0B849004808DB /* RickandMortyTests */ = {
 			isa = PBXGroup;
 			children = (
+				B95E986922D2B2C800511014 /* JSON */,
 				B906524422D0B849004808DB /* RickandMortyTests.swift */,
 				B906524622D0B849004808DB /* Info.plist */,
 			);
@@ -114,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				B906527022D0C9D1004808DB /* RestManager.swift */,
+				B95E986222D292A700511014 /* ImageTask.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -175,6 +187,7 @@
 		B906525622D0BA5C004808DB /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				B95E986422D2A5E100511014 /* Cell */,
 				B906525B22D0BAB1004808DB /* DetailCharacter */,
 				B906525922D0BAAA004808DB /* CharactersViewController.swift */,
 			);
@@ -187,6 +200,37 @@
 				B906525C22D0BAE4004808DB /* DetailCharacterViewController.swift */,
 			);
 			path = DetailCharacter;
+			sourceTree = "<group>";
+		};
+		B95E985622D25BA300511014 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B95E985922D25CCE00511014 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B95E986422D2A5E100511014 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B95E985E22D2671F00511014 /* CharacterCollectionViewCell.swift */,
+				B95E986022D26AFE00511014 /* HeaderCollectionReusableView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B95E986922D2B2C800511014 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B95E986F22D2B4BA00511014 /* Episodes.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95E987122D2B4BA00511014 /* Episodes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +335,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95E985F22D2671F00511014 /* CharacterCollectionViewCell.swift in Sources */,
+				B95E986122D26AFE00511014 /* HeaderCollectionReusableView.swift in Sources */,
 				B906527122D0C9D1004808DB /* RestManager.swift in Sources */,
 				B906525822D0BA96004808DB /* EpisodesViewController.swift in Sources */,
+				B95E986322D292A700511014 /* ImageTask.swift in Sources */,
 				B906526922D0C4E1004808DB /* EpisodesViewModel.swift in Sources */,
 				B906525D22D0BAE4004808DB /* DetailCharacterViewController.swift in Sources */,
 				B906526B22D0C4F6004808DB /* CharactersViewModel.swift in Sources */,
@@ -498,6 +546,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7Z5QZ278W;
 				INFOPLIST_FILE = RickandMortyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -518,6 +567,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7Z5QZ278W;
 				INFOPLIST_FILE = RickandMortyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

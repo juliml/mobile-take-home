@@ -8,6 +8,16 @@
 
 import UIKit
 
+struct ResultsEpisode: Codable {
+    let info: Info?
+    let results: [Episode]?
+}
+
+struct Info: Codable {
+    let count, pages : Int?
+    let next, prev: String?
+}
+
 /*
  id    int    The id of the episode.
  name    string    The name of the episode.
@@ -18,10 +28,11 @@ import UIKit
  created    string    Time at which the episode was created in the database.
  */
 
+// MARK: - Episodes
 struct Episode: Codable, CustomStringConvertible {
     var id: Int?
     var name: String?
-    var air_date: String?
+    var airDate: String?
     var episode: String?
     var characters: [String]?
     var url: String?
@@ -31,10 +42,10 @@ struct Episode: Codable, CustomStringConvertible {
         var desc = """
         id = \(id ?? -1)
         name = \(name ?? "")
-        air date = \(air_date ?? "")
+        air date = \(airDate ?? "")
         episode = \(episode ?? "")
         url = \(url ?? "")
-        created = \(url ?? "")
+        created = \(created ?? "")
         characters:
         
         """
@@ -46,4 +57,5 @@ struct Episode: Codable, CustomStringConvertible {
         
         return desc
     }
+    
 }
